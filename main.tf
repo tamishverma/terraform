@@ -56,6 +56,7 @@ resource "aws_instance" "web_server" {
     ami = "ami-0f5ee92e2d63afc18"
     instance_type = "t2.micro"
     security_groups = [aws_security_group.mysg.name]
+    count = 3
     user_data = file("myscript.sh")
     tags = {
         Name = "web_server"
